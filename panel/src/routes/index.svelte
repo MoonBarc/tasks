@@ -4,5 +4,5 @@
 </script>
 
 {#each buttons as type}
-    <Button style="margin-top: 1rem" type={type}>{type}</Button><br/>
+    <Button style="margin-bottom: 1rem" type={type}>{type}</Button><br/>
 {/each}

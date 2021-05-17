@@ -8,14 +8,14 @@
 
 <style>
     button {
-        padding: 0.8rem 1.7rem;
-        min-width: 11rem;
+        padding: 0.6rem 1.5rem;
+        min-width: 10rem;
         border-radius: 6px;
         /* border: black solid 1px; */
         border: none;
         text-transform: uppercase;
         color: #FDFDFD;
-        font-size: 1.2rem;
+        font-size: 1rem;
         background-color: #5292F1;
         transition: filter 200ms;
         cursor: pointer;
@@ -53,4 +53,4 @@
 </style>
 
 
-<button style={style} class={type} disabled={disabled}><slot></slot></button>
+<button on:click style={style} class={type} disabled={disabled}><slot></slot></button>
