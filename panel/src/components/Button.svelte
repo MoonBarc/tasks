@@ -19,6 +19,7 @@
         background-color: #5292F1;
         transition: filter 200ms;
         cursor: pointer;
+        font-family: 'Roboto', sans-serif;
     }
 
     .primary {

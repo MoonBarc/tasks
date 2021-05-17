@@ -7,7 +7,10 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		target: '#app'
+		target: '#app',
+		files: {
+			assets: 'static'
+		}
 	}
 };
 
