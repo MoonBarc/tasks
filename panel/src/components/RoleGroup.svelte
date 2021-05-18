@@ -3,7 +3,8 @@
         display: flex
     }
     .rg :global(.rolewrap) {
-        margin-right: 0.4rem;
+        margin-right: 0.2rem;
+        margin-left: 0.2rem;
     }
 </style>
 

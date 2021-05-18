@@ -3,11 +3,14 @@ roles:
     name: Operator
     color: '#fa22fa'
     permissions: [ OPERATOR ]
+    height: 10001
   admin:
     name: Admin
     color: '#fa2211'
     permissions: [ ADMINISTRATOR ]
+    height: 9000
   lawsmat:
     name: Lawsmat
-    color: '#61A0FF'
+    color: '#61a0ff'
     permissions: [ CREATE_TASK, VIEW_TASK, MANAGE_TASK ]
+    height: 8000

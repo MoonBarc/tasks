@@ -1,17 +1,18 @@
 <script>
     import UserPage from "../../../components/UserPage.svelte";
     import Main from "../../../components/Main.svelte";
+    import Header from "../../../components/Header.svelte";
     let loaded = true;
     let resource = {
         type: "user"
     }
 </script>
-<Main>
-    {#if loaded}
-        {#if resource.type == "user"}
-            <UserPage/>
-        {/if}
-    {:else}
-        <h1>Loading resource...</h1>
+
+<Header></Header>
+{#if loaded}
+    {#if resource.type == "user"}
+        <UserPage/>
     {/if}
-</Main>
+{:else}
+    <h1>Loading resource...</h1>
+{/if}

@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
+    "sass": "^1.32.13",
     "svelte": "^3.34.0",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
