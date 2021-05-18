@@ -4,6 +4,7 @@
     import Button from "../components/Button.svelte";
     import Role from "../components/Role.svelte";
     import RoleGroup from "../components/RoleGroup.svelte";
+    import Header from "../components/Header.svelte";
     let buttons = [ "primary", "secondary", "danger", "flat", "flat danger", "flat primary", "flat secondary"]
 </script>
 
@@ -13,6 +14,7 @@
     }
 </style>
 
+<Header/>
 <Alert>test</Alert>
 
 <Main>
@@ -27,4 +29,6 @@
     {#each buttons as type}
         <Button style="margin-bottom: 1rem" type={type}>{type}</Button><br/>
     {/each}
+    <Button isDisabled={true} style="margin-bottom: 1rem" type="flat">Flat (Disabled)</Button><br/>
+    <Button isDisabled={true} style="margin-bottom: 1rem" type="primary">Full (Disabled)</Button><br/>
 </Main>

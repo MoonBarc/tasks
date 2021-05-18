@@ -51,6 +51,16 @@
         color: #000;
         border: solid 1px
     }
+
+    button:disabled {
+        background-color: #5b5b5b;
+        cursor: not-allowed
+    }
+
+    button.flat:disabled {
+        background: none;
+        color: #5b5b5b;
+    }
 </style>
 
 

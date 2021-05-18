@@ -47,7 +47,7 @@
                 display: none
             }
             position: absolute;
-            right: 10px;
+            right: 1rem;
             display: flex;
             align-items: center;
         }

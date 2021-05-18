@@ -1,6 +1,5 @@
 <script>
     import UserPage from "../../../components/UserPage.svelte";
-    import Main from "../../../components/Main.svelte";
     import Header from "../../../components/Header.svelte";
     let loaded = true;
     let resource = {
