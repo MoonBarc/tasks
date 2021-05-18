@@ -7,3 +7,7 @@ roles:
     name: Admin
     color: '#fa2211'
     permissions: [ ADMINISTRATOR ]
+  lawsmat:
+    name: Lawsmat
+    color: '#61A0FF'
+    permissions: [ CREATE_TASK, VIEW_TASK, MANAGE_TASK ]
