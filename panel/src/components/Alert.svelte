@@ -1,4 +1,6 @@
 <script>
+    import Icon from "./Icon.svelte";
+
     export let dissmissable = true;
     export let dismissed = false;
     export let bg = "#adbfff"
@@ -30,6 +32,6 @@
         <slot></slot>
     </div>
     {#if dissmissable}
-        <div class="close-button">x</div>
+        <div class="close-button"><Icon name="times"/></div>
     {/if}
 </div>

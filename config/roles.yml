@@ -1,0 +1,9 @@
+roles:
+  operator:
+    name: Operator
+    color: '#fa22fa'
+    permissions: [ OPERATOR ]
+  admin:
+    name: Admin
+    color: '#fa2211'
+    permissions: [ ADMINISTRATOR ]
