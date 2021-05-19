@@ -1,5 +1,4 @@
 <script>
-    import Icon from "./Icon.svelte";
     import StatusDot from "./StatusDot.svelte";
 
     import { onMount } from "svelte"
@@ -13,17 +12,23 @@
 
 
     onMount(() => {
-        setInterval(() => {
+        setTimeout(() => {
+            status = "All systems online"
+            statusColor = "#6ad478"
+            maxTasks = 100
             tasksRuning = getRandomInt(20,40)
-        },1200)
+            setInterval(() => {
+                tasksRuning = getRandomInt(20,40)
+            },1200)
+        },1000)
     })
 
     export let bg = "#4f566f"
     export let color = "#fff"
-    let tasksRuning = 27;
-    let maxTasks = 100;
-    let status = "All systems online"
-    let statusColor = "#6ad478"
+    let tasksRuning = 0;
+    let maxTasks = 0;
+    let status = "Connecting..."
+    let statusColor = "#fcba03"
 </script>
 
 <style lang="scss">
@@ -58,7 +63,7 @@
     <div class="header-content">
         <h1><!-- TODO: Dynamically update this from build config!-->Tasks</h1>
         <div class="status">
-            <StatusDot color={statusColor}/><span>{status} ({tasksRuning}/{maxTasks})</span>
+            <StatusDot color={statusColor}/><span>{status} {#if maxTasks != 0}({tasksRuning}/{maxTasks}){/if}</span>
         </div>
     </div>
 </div>
