@@ -10,11 +10,9 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-
     onMount(() => {
         setTimeout(() => {
-            status = "All systems online"
-            statusColor = "#6ad478"
+            status = "ok"
             maxTasks = 100
             tasksRuning = getRandomInt(20,40)
             setInterval(() => {
@@ -23,12 +21,19 @@
         },1000)
     })
 
+    const statuses = {
+        connecting: ["#fcba03", "Connecting..."],
+        ok: ["#6ad478", "All systems online"],
+        badnode: ["#ff5c5c", "Faulty node"],
+        nonodes: ["#ff5c5c", "No nodes online"],
+        unicorn: ["#ff45f3", "unicorn override enabled 🦄"],
+    }
+
     export let bg = "#4f566f"
     export let color = "#fff"
     let tasksRuning = 0;
     let maxTasks = 0;
-    let status = "Connecting..."
-    let statusColor = "#fcba03"
+    let status = "connecting"
 </script>
 
 <style lang="scss">
@@ -63,7 +68,7 @@
     <div class="header-content">
         <h1><!-- TODO: Dynamically update this from build config!-->Tasks</h1>
         <div class="status">
-            <StatusDot color={statusColor}/><span>{status} {#if maxTasks != 0}({tasksRuning}/{maxTasks}){/if}</span>
+            <StatusDot color={statuses[status][0]}/><span>{statuses[status][1]} {#if maxTasks != 0}({tasksRuning}/{maxTasks}){/if}</span>
         </div>
     </div>
 </div>
