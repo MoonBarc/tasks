@@ -1,6 +1,6 @@
 import DistributionMethod from "../enum/DistributionMethod"
 import Socket from "../interface/Socket"
-import Capacity from "./Capacity"
+import Capacity from "../interface/Capacity"
 
 /**
  * A runner node

@@ -6,5 +6,5 @@ export const taskdata = writable({
 })
 
 export const statusdata = writable({
-    status: "connecting"
+    status: "loading"
 })

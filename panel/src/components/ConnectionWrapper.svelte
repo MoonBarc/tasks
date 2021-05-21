@@ -3,11 +3,34 @@
 
     import { onMount } from "svelte"
 
-    onMount(() => {
-        console.log("Connected! (not)")
+    function setStatus(status) {
         statusdata.update(() => ({
-            status: "ok"
+            status
         }))
+    }
+
+    onMount(() => {
+        console.log("Connecting to socket...")
+
+        setStatus("connecting")
+
+        const ws = new WebSocket("ws://" + window.location.host)
+        ws.addEventListener("open", () => {
+            setStatus("ok")
+        })
+
+        ws.addEventListener("error", () => {
+            setStatus("unknown")
+        })
+
+        ws.addEventListener("close", () => {
+            setStatus("connectfail")
+        })
+
+        /*
+         * Conviniently labeled easter egg
+        */
+        Object.defineProperty(window, 'unicorn', { get: function() { setStatus("unicorn"); return "unicorn override enabled 🦄"; } });
     })
 </script>
 

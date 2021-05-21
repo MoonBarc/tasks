@@ -29,24 +29,13 @@
         nonodes: ["#ff5c5c", "No nodes online"],
         unicorn: ["#ff45f3", "unicorn override enabled 🦄"],
         disconnected: ["#ff5c5c", "Disconnected"],
-        unknown: ["#ff5c5c", "Unknown error"]
+        connectfail: ["#ff5c5c", "Couldn't connect"],
+        unknown: ["#ff5c5c", "Unknown error"],
+        loading: ["#adadad", "Loading..."]
     }
 
     export let bg = "#4f566f"
     export let color = "#fff"
-    let tasksRuning = 0;
-    let maxTasks = 0;
-    let status = "connecting"
-
-    // updating stuff
-    taskdata.subscribe((d) => {
-        maxTasks = d.max;
-        tasksRuning = d.running
-    })
-
-    statusdata.subscribe((d) => {
-        status = d.status
-    })
 </script>
 
 <style lang="scss">
@@ -81,7 +70,7 @@
     <div class="header-content">
         <h1><!-- TODO: Dynamically update this from build config!-->Tasks</h1>
         <div class="status">
-            <StatusDot color={statuses[status][0]}/><span>{statuses[status][1]} {#if maxTasks != 0}({tasksRuning}/{maxTasks}){/if}</span>
+            <StatusDot color={statuses[$statusdata.status][0]}/><span>{statuses[$statusdata.status][1]}{#if $taskdata.max != 0} ({$taskdata.running}/{$taskdata.max}){/if}</span>
         </div>
     </div>
 </div>
