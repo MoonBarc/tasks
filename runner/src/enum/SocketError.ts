@@ -16,18 +16,4 @@ enum NodeSocketError {
     BAD_ARGUMENTS
 }
 
-/**
- * For API Server
- */
-enum APISocketError {
-    /**
-     * Access was denied for watched resource.
-     */
-    NO_ACCESS,
-    /**
-     * Socket didn't get activated yet.
-     */
-    NOT_ACTIVATED
-}
-
-export { APISocketError, NodeSocketError }
+export { NodeSocketError }

@@ -25,8 +25,8 @@
     const statuses = {
         connecting: ["#fcba03", "Connecting..."],
         ok: ["#6ad478", "All systems online"],
-        badnode: ["#ff5c5c", "Faulty node"],
-        nonodes: ["#ff5c5c", "No nodes online"],
+        badnode: ["#fcba03", "Faulty node"],
+        nonodes: ["#fcba03", "No nodes online"],
         unicorn: ["#ff45f3", "unicorn override enabled 🦄"],
         disconnected: ["#ff5c5c", "Disconnected"],
         connectfail: ["#ff5c5c", "Couldn't connect"],

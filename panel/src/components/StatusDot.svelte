@@ -9,8 +9,15 @@
         border-radius: 50%;
         margin-right: 0.4rem;
     }
+
+    .status-dot {
+        display: flex;
+        align-items: center;
+    }
 </style>
 
-<div style={
-    `background-color: ${color};`
-} class="dot"></div>
+<div class="status-dot">
+    <div style={
+        `background-color: ${color};`
+    } class="dot"></div><slot></slot>
+</div>

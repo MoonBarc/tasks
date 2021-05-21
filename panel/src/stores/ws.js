@@ -8,3 +8,8 @@ export const taskdata = writable({
 export const statusdata = writable({
     status: "loading"
 })
+
+export const nodesdata = writable({
+    online: 0,
+    faulty: 0
+})

@@ -1,20 +1,19 @@
 import DistributionMethod from "../enum/DistributionMethod"
 import Socket from "../interface/Socket"
 import Capacity from "../interface/Capacity"
+import levels from "./Logger";
 
 /**
  * A runner node
  */
 class Node {
-
-    constructor(socket: Socket, method: DistributionMethod, capacity: Capacity) {
+    constructor(socket: Socket, capacity: Capacity) {
         this.connection = socket;
-        this.method = method;
         this.capacity = capacity;
+        levels.VERBOSE.log(socket.id + " has been created with capacity: " + JSON.stringify(capacity))
     }
 
     capacity: Capacity
-    method: DistributionMethod
     connection: Socket
 }
 
