@@ -15,7 +15,7 @@
 </style>
 
 <Header/>
-<Alert>test</Alert>
+<!-- <Alert>test</Alert> -->
 
 <Main>
     <h1>User</h1>

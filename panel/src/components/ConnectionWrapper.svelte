@@ -1,10 +1,12 @@
 <script>
+    import { statusdata } from "../stores/ws";
+
     import { onMount } from "svelte"
 
     onMount(() => {
-        const ws = new WebSocket(`ws://${location.host}`)
-        ws.send(JSON.stringify({
-            
+        console.log("Connected! (not)")
+        statusdata.update(() => ({
+            status: "ok"
         }))
     })
 </script>

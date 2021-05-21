@@ -2,6 +2,7 @@
     import StatusDot from "./StatusDot.svelte";
 
     import { onMount } from "svelte"
+    import { taskdata, statusdata } from "../stores/ws";
 
     // TODO: Use actual values
     function getRandomInt(min, max) {
@@ -10,16 +11,16 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    onMount(() => {
-        setTimeout(() => {
-            status = "ok"
-            maxTasks = 100
-            tasksRuning = getRandomInt(20,40)
-            setInterval(() => {
-                tasksRuning = getRandomInt(20,40)
-            },1200)
-        },1000)
-    })
+    // onMount(() => {
+    //     setTimeout(() => {
+    //         status = "ok"
+    //         maxTasks = 100
+    //         tasksRuning = getRandomInt(20,40)
+    //         setInterval(() => {
+    //             tasksRuning = getRandomInt(20,40)
+    //         },1200)
+    //     },1000)
+    // })
 
     const statuses = {
         connecting: ["#fcba03", "Connecting..."],
@@ -27,6 +28,8 @@
         badnode: ["#ff5c5c", "Faulty node"],
         nonodes: ["#ff5c5c", "No nodes online"],
         unicorn: ["#ff45f3", "unicorn override enabled 🦄"],
+        disconnected: ["#ff5c5c", "Disconnected"],
+        unknown: ["#ff5c5c", "Unknown error"]
     }
 
     export let bg = "#4f566f"
@@ -34,6 +37,16 @@
     let tasksRuning = 0;
     let maxTasks = 0;
     let status = "connecting"
+
+    // updating stuff
+    taskdata.subscribe((d) => {
+        maxTasks = d.max;
+        tasksRuning = d.running
+    })
+
+    statusdata.subscribe((d) => {
+        status = d.status
+    })
 </script>
 
 <style lang="scss">
