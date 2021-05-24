@@ -8,6 +8,7 @@ import Socket from "../interface/Socket"
 import PanelServer from "../panelws/PanelServer"
 import StatsPacket from "../panelws/StatsPacket"
 import TaskStatistics from "../stats/TaskStatistics"
+import ScheduleTaskPacket from "./ScheduleTaskPacket"
 
 class NodeServer {
     server: WebSocket.Server
@@ -18,6 +19,19 @@ class NodeServer {
         this.server = new WebSocket.Server({ port })
         this.panel = panel;
         this.registry = []
+
+        panel.on("task", (task, nodeId) => {
+            levels.NODES.log("Received task, forwarding to node...")
+            const node = this.registry.find(n => n.connection.id == nodeId)
+            if(!node) {
+                levels.NODES.log("Node not found, " + nodeId)
+                return
+            };
+            const packet = new ScheduleTaskPacket(task)
+            node.connection.send(JSON.stringify(
+                packet
+            ))
+        })
 
         this.server.on("connection", (con: Socket) => {
             if(con.readyState != WebSocket.OPEN) return;

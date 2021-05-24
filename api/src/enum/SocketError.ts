@@ -27,7 +27,15 @@ enum APISocketError {
     /**
      * Socket didn't get activated yet.
      */
-    NOT_ACTIVATED
+    NOT_ACTIVATED,
+    /**
+     * Server could not parse the JSON.
+     */
+    BAD_JSON,
+    /**
+     * JSON arguments had validation issues.
+     */
+    BAD_ARGUMENTS
 }
 
 export { APISocketError, NodeSocketError }

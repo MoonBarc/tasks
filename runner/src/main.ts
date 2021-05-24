@@ -10,5 +10,6 @@ const client = new ConnectionClient("ws://localhost:4012")
 const runner = new TaskRunner()
 
 client.on("task", (task: Task) => {
+    levels.DOCKER.log("Starting task in container...")
     runner.run(task)
 })

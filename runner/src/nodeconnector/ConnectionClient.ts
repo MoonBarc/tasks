@@ -39,7 +39,8 @@ class ConnectionClient extends EventEmitter {
                 const data = JSON.parse(d.toString())
                 if(data) {
                     if(data.type == "task") {
-                        this.emit("task", new Task(data.type, data.image, data.command))
+                        levels.INFO.log("TASK RECEIVED!")
+                        this.emit("task", new Task(data.task.type, data.task.image, data.task.command))
                     }
                 }
             } catch (e) {
