@@ -24,7 +24,7 @@ const levels = {
     CRITICAL: new LogLevel("critical", chalk.red),
     FATAL: new LogLevel("fatal", chalk.bgRed.white),
     SUCCESS: new LogLevel("success", chalk.green),
-    API: new LogLevel("api", chalk.cyan)
+    DOCKER: new LogLevel("docker", chalk.cyan)
 }
 
 export default levels

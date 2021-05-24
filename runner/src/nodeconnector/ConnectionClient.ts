@@ -1,9 +1,17 @@
+import EventEmitter = require("events")
 import * as WebSocket from "ws"
+import TaskType from "../enum/TaskType"
 import levels from "../Logger"
+import Task from "./Task"
 
-class ConnectionClient {
+declare interface ConnectionClient {
+    on(name: "task", listener: (task: Task) => void);
+}
+
+class ConnectionClient extends EventEmitter {
     client: WebSocket
     constructor(addr: string) {
+        super()
         this.client = new WebSocket(addr)
         this.client.on("open", (() => {
             levels.SUCCESS.log("WebSocket connection established, sending details.")
@@ -27,7 +35,16 @@ class ConnectionClient {
         })
 
         this.client.on("message", (d) => {
-            levels.VERBOSE.log(d.toString())
+            try {
+                const data = JSON.parse(d.toString())
+                if(data) {
+                    if(data.type == "task") {
+                        this.emit("task", new Task(data.type, data.image, data.command))
+                    }
+                }
+            } catch (e) {
+                levels.WARN.log("Failed to parse JSON!")
+            }
         })
     }
 }

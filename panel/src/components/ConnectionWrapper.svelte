@@ -1,5 +1,5 @@
 <script>
-    import { nodesdata, statusdata, taskdata } from "../stores/ws";
+    import { apisocket, nodesdata, statusdata, taskdata } from "../stores/ws";
 
     import { onMount } from "svelte"
 
@@ -14,6 +14,7 @@
 
         const ws = new WebSocket("ws://" + window.location.hostname + ":3001")
         ws.addEventListener("open", () => {
+            $apisocket.websocket = ws;
             setStatus("ok")
         })
 
@@ -26,7 +27,8 @@
                     const d = data.stats
                     taskdata.set({
                         max: d.tasks.max || 0,
-                        running: d.tasks.running || 0
+                        running: d.tasks.running || 0,
+                        queued: d.tasks.queued || 0
                     })
                     nodesdata.set({
                         online: d.nodes.online || 0,

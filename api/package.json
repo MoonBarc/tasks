@@ -6,6 +6,9 @@
   "main": "build/main.js",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "tsc && node build/Main.js"
+  },
   "devDependencies": {
     "@types/node": "^15.3.0",
     "@types/ws": "^7.4.4",
