@@ -58,7 +58,7 @@
 
             }catch(e) {
                 console.log("Error connecting!")
-                setStatus("unknown")
+                setStatus("disconnected")
                 reconnect()
                 return null
             }
