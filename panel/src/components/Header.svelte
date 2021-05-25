@@ -24,6 +24,7 @@
 
     const statuses = {
         connecting: ["#fcba03", "Connecting..."],
+        reconnecting: ["#fcba03", "Reconnecting..."],
         ok: ["#6ad478", "All systems online"],
         badnode: ["#fcba03", "Faulty node"],
         nonodes: ["#fcba03", "No nodes online"],
